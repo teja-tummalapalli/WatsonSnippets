@@ -7,7 +7,7 @@ public class PersonalityInsightsExample {
 
   public static void main(String[] args) {
     PersonalityInsights service = new PersonalityInsights();
-    service.setUsernameAndPassword("<username>", "<password>");
+    service.setUsernameAndPassword("95c2c2a3-a4d0-4091-8b9a-534f56854e1c", "3iY3yePv4An4");
 
     String text =
       "Call me Ishmael. Some years ago-never mind how long "

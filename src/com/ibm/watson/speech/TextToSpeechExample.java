@@ -12,7 +12,7 @@ public class TextToSpeechExample {
 
   public static void main(String[] args) {
     TextToSpeech service = new TextToSpeech();
-    service.setUsernameAndPassword("<username>", "<password>");
+    service.setUsernameAndPassword("b2e32c2e-b2bd-4bdb-b826-0b4b74094cad", "58BJnsSnuIQa");
 
     List<Voice> voices = service.getVoices().execute();
     System.out.println(voices);

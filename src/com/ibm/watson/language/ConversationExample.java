@@ -13,16 +13,16 @@ public class ConversationExample {
 
 	  public static void main(String[] args) throws Exception {
 	    ConversationService service = new ConversationService(ConversationService.VERSION_DATE_2016_05_19);
-	    service.setUsernameAndPassword("<username>", "<password>");
+	    service.setUsernameAndPassword("82468892-41c9-461d-b638-769b3bda0c99", "mZabMdQyXEtd");
 
 	    // sync
-	    MessageRequest newMessage = new MessageRequest.Builder().inputText("Hi").build();
-	    MessageResponse response = service.message("<workspace-id>", newMessage).execute();
+	    MessageRequest newMessage = new MessageRequest.Builder().inputText("What can you do?").build();
+	    MessageResponse response = service.message("e33d0e94-550d-404c-8afd-ec8e0dfed6c4", newMessage).execute();
 	    System.out.println(response);
 
 
 	    // async
-	    service.message("<workspace-id>", newMessage).enqueue(new ServiceCallback<MessageResponse>() {
+	    service.message("e33d0e94-550d-404c-8afd-ec8e0dfed6c4", newMessage).enqueue(new ServiceCallback<MessageResponse>() {
 	      @Override
 	      public void onResponse(MessageResponse response) {
 	        System.out.println(response);
@@ -33,7 +33,7 @@ public class ConversationExample {
 	    });
 
 	    // rx callback
-	    service.message("<workspace-id>", newMessage).rx()
+	    service.message("e33d0e94-550d-404c-8afd-ec8e0dfed6c4", newMessage).rx()
 	        .thenApply(new CompletableFuture.Fun<MessageResponse, Map<String, Object>>() {
 	          @Override
 	          public Map<String, Object> apply(MessageResponse message) {
@@ -47,7 +47,7 @@ public class ConversationExample {
 	        });
 
 	    // rx async callback
-	    service.message("<workspace-id>", newMessage).rx()
+	    service.message("e33d0e94-550d-404c-8afd-ec8e0dfed6c4", newMessage).rx()
 	        .thenApplyAsync(new CompletableFuture.Fun<MessageResponse, Map<String, Object>>() {
 	          @Override
 	          public Map<String, Object> apply(MessageResponse message) {
@@ -61,7 +61,7 @@ public class ConversationExample {
 	        });
 
 	    // rx sync
-	    MessageResponse rxMessageResponse = service.message("<workspace-id>", newMessage).rx().get();
+	    MessageResponse rxMessageResponse = service.message("e33d0e94-550d-404c-8afd-ec8e0dfed6c4", newMessage).rx().get();
 	    System.out.println(rxMessageResponse);
 	  }
 

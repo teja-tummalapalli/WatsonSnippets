@@ -8,9 +8,9 @@ public class NaturalLanguageClassifierExample {
 
   public static void main(String[] args) {
     NaturalLanguageClassifier service = new NaturalLanguageClassifier();
-    service.setUsernameAndPassword("<username>", "<password>");
+    service.setUsernameAndPassword("971c5cca-dfaf-4e67-9386-787e045bcded", "IdeW0KGaeNsw");
 
-    Classification classification = service.classify("<classifier-id>", "Is it sunny?").execute();
+    Classification classification = service.classify("2374f9x69-nlc-7541", "Is it sunny?").execute();
 
     System.out.println(classification);
   }

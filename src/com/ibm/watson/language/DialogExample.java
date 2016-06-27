@@ -11,7 +11,7 @@ import jersey.repackaged.jsr166e.CompletableFuture;
 public class DialogExample {
   public static void main(String[] args) throws Exception{
     DialogService service = new DialogService();
-    service.setUsernameAndPassword("<username>", "<password>");
+    service.setUsernameAndPassword("8d2ca36f-7631-4ac7-bb7c-cc7aff177baf", "0y0P60FDGgdJ");
 
     // sync
     List<Dialog> dialogs = service.getDialogs().execute();

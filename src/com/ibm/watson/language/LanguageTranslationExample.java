@@ -9,7 +9,7 @@ public class LanguageTranslationExample {
 
   public static void main(String[] args) {
     LanguageTranslation service = new LanguageTranslation();
-    service.setUsernameAndPassword("<username>", "<password>");
+    service.setUsernameAndPassword("44147fb6-d719-42f1-802e-c1939b43c90f", "qKLU42iUalbL");
 
     TranslationResult translationResult = service.translate("hello", Language.ENGLISH, Language.SPANISH).execute();
 

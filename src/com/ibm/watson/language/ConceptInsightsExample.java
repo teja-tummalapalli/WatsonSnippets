@@ -8,7 +8,7 @@ public class ConceptInsightsExample {
 
 	  public static void main(String[] args) {
 	    ConceptInsights service = new ConceptInsights();
-	    service.setUsernameAndPassword("<username>", "<password>");
+	    service.setUsernameAndPassword("a2f2c497-19a2-4317-b90c-b6a633ae874c", "VHw8dqib0Qns");
 
 	    Annotations annotations =
 	      service.annotateText(Graph.WIKIPEDIA,

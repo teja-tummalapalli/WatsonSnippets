@@ -8,7 +8,7 @@ public class ToneAnalyzerExample {
 
   public static void main(String[] args) {
     ToneAnalyzer service = new ToneAnalyzer(ToneAnalyzer.VERSION_DATE_2016_02_11);
-    service.setUsernameAndPassword("<username>", "<password>");
+    service.setUsernameAndPassword("5e639b2f-fa7e-40a7-b4b6-ee3c78902bdf", "6V7fqNajb8vC");
 
     String text =
       "I know the times are difficult! Our sales have been "
