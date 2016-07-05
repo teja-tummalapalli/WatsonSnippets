@@ -1,44 +1,29 @@
 package com.ibm.watson.vision;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+
+import org.apache.commons.io.FileUtils;
 
 import com.ibm.watson.developer_cloud.visual_recognition.v3.VisualRecognition;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifyImagesOptions;
-import com.ibm.watson.developer_cloud.visual_recognition.v3.model.CreateClassifierOptions;
+import com.ibm.watson.developer_cloud.visual_recognition.v3.model.DetectedFaces;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.model.VisualClassification;
-import com.ibm.watson.developer_cloud.visual_recognition.v3.model.VisualClassifier;
+import com.ibm.watson.developer_cloud.visual_recognition.v3.model.VisualRecognitionOptions;
 
 public class VisualRecognitionExample {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
     VisualRecognition service = new VisualRecognition(VisualRecognition.VERSION_DATE_2016_05_19);
-    service.setApiKey("d2834f0879e7c19aa3c76af3840b6ac33587c21a");
-
-    System.out.println("Classify an image");
-    ClassifyImagesOptions options = new ClassifyImagesOptions.Builder()
-        .images(new File("src/test/resources/visual_recognition/car.png"))
-        .build();
-    VisualClassification result = service.classify(options).execute();
-    System.out.println(result);
-
-    
-    System.out.println("Create a classifier with positive and negative images");
-    CreateClassifierOptions createOptions = new CreateClassifierOptions.Builder()
-        .classifierName("foo")
-        .addClass("car", new File("src/test/resources/visual_recognition/car_positive.zip"))
-        .addClass("baseball", new File("src/test/resources/visual_recognition/baseball_positive.zip"))
-        .negativeExamples(new File("src/test/resources/visual_recognition/negative.zip"))
-        .build();
-    VisualClassifier foo = service.createClassifier(createOptions).execute();
-    System.out.println(foo);
-
-    System.out.println("Classify using the 'Car' classifier");
-    options = new ClassifyImagesOptions.Builder()
-        .images(new File("src/test/resources/visual_recognition/car.png"))
-        .classifierIds("car")
-        .build();
-    result = service.classify(options).execute();
-    System.out.println(result);
-
-  }
+    service.setApiKey("d2834f0879e7c19aa3c76af3840b6ac33587c21a");    
+    File obama;    
+    URL url = new URL("https://www.whitehouse.gov/sites/whitehouse.gov/files/images/first-family/44_barack_obama%5B1%5D.jpg");
+    obama = new File("test");     
+    FileUtils.copyURLToFile(url, obama);     
+    VisualRecognitionOptions voptoins = new VisualRecognitionOptions.Builder().images(obama).build();
+	service.detectFaces(voptoins);
+	DetectedFaces result = service.detectFaces(voptoins).execute();
+    System.out.println(result.toString());
+    }
 }

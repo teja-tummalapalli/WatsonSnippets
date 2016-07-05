@@ -15,50 +15,7 @@ public class DialogExample {
 
     // sync
     List<Dialog> dialogs = service.getDialogs().execute();
-    System.out.println(dialogs);
+    System.out.println(dialogs.toString());
     
-    
-    // async
-    service.getDialogs().enqueue(new ServiceCallback<List<Dialog>>() {
-      @Override
-      public void onResponse(List<Dialog> response) {
-        System.out.println(response);
-      }
-
-      @Override
-      public void onFailure(Exception e) {
-      }}
-    );
-
-    // rx callback
-    service.getDialogs().rx().thenApply(new CompletableFuture.Fun<List<Dialog>, Integer>() {
-      @Override
-      public Integer apply(List<Dialog> dialogs) {
-        return dialogs.size();
-      }
-    }).thenAccept(new CompletableFuture.Action<Integer>() {
-      @Override
-      public void accept(Integer integer) {
-        System.out.println(integer);
-      }
-    });
-
-    // rx async callback
-    service.getDialogs().rx().thenApplyAsync(new CompletableFuture.Fun<List<Dialog>, Integer>() {
-      @Override
-      public Integer apply(List<Dialog> dialogs) {
-        return dialogs.size();
-      }
-    }).thenAccept(new CompletableFuture.Action<Integer>() {
-      @Override
-      public void accept(Integer size) {
-        System.out.println(size);
-      }
-    });
-
-    // rx sync
-    Integer size=service.getDialogs().rx().get().size();
-    System.out.println(size);
   }
-
 }

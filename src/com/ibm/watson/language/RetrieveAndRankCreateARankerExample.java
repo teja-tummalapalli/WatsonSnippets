@@ -11,6 +11,7 @@ import com.ibm.watson.developer_cloud.retrieve_and_rank.v1.model.Ranking;
 /**
  * Example of how to create a {@link Ranking} with {@link RetrieveAndRank}.
  */
+//This program will be provisioning an Apache Solar Instance, so it may take few minutes.
 public class RetrieveAndRankCreateARankerExample {
   public static void main(String[] args) throws InterruptedException {
     // 1 create the service
